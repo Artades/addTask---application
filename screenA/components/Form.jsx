@@ -113,17 +113,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 35,
         alignItems: "center",
-        // shadowColor: "#000",
         width: '100%',
         height: "100%",
-        
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 2
-        // },
-        // shadowOpacity: 0.25,
-        // shadowRadius: 4,
-        // elevation: 5
     },
     buttonModal: {
         width: '100%',

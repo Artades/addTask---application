@@ -1,15 +1,16 @@
-import React, { useState} from 'react';
-import {Button, StyleSheet, Text, View} from "react-native";
+import React, {useRef} from 'react';
+import { StyleSheet, Text, View} from "react-native";
 import {Animated} from "react-native";
 
 
 
-const Chart = ({posts, countPercent}) => {
+const Chart = ({posts, searchText}) => {
     const newArr =   posts.filter(post => post.isChecked === true)
  let percentOfCompletedTasks =  Math.round((newArr.length / posts.length) * 100 )
 
+
     return (
-        <View>
+        <View style={{display: searchText !==  '' ? 'none' : 'flex'}}>
             <Text style={styles.chartText}>Analytics</Text>
             <View style={styles.chartWrapper}>
                 <View style={styles.chart}>

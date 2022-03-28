@@ -1,25 +1,73 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground} from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-const Log = () => {
-//     return (
-//         <NavigationContainer>
-//             <Stack.Navigator>
-//                 <Stack.Screen
-//                     name="Home"
-//                     component={HomeScreen}
-//                     options={{ title: 'Welcome' }}
-//                 />
-//                 <Stack.Screen name="Profile" component={ProfileScreen} />
-//             </Stack.Navigator>
-//         </NavigationContainer>
-//     );
+import {
+    View,
+    StyleSheet,
+
+    KeyboardAvoidingView,
+    Platform,
+    TextInput,
+    TouchableOpacity, Text
+} from "react-native";
+
+const Log = ({navigation}) => {
+    // const addText = (value) => setText(value);
+    // let [text, setText] = React.useState("");
+     return (
+          <View>
+
+
+                  <TextInput
+                      style={styles.inp}
+                      placeholder={'Enter your name'}
+                  />
+
+                  <TouchableOpacity style={styles.buttonModal} onPress={() => navigation.navigate('Main')}>
+                      <Text style={styles.buttonText2}>
+                          Get Started
+                      </Text>
+                  </TouchableOpacity>
+
+
+          </View>
+    );
  };
 const styles = StyleSheet.create({
-    login: {
+    inp: {
+        width: '100%',
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: '#fdfdfd',
+        elevation: 7,
+        fontFamily: 'ns-regular',
+        marginBottom: 15,
+        shadowColor: "#0d0d10",
+        shadowOffset: {
+            width: 2,
+            height: 5
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
 
-    }
+    },
+    buttonModal: {
+        width: '100%',
+        height: 55,
+        borderRadius: 10,
+        backgroundColor: '#47a7f5',
+        elevation: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 15,
+        shadowColor: '#47a7f5',
+        shadowOffset: {
+            width: 2,
+            height: 10
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
+    },
+
+
 })
 export default Log;
 

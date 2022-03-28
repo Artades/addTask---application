@@ -5,7 +5,7 @@ import { EvilIcons } from '@expo/vector-icons';
 
 
 
-const Header = ({setModalVisible, searchVisible,setSearchVisible, searchText ,setSearchText ,addSearch}) => {
+const Header = ({setModalVisible, searchVisible,setSearchVisible, searchText ,setSearchText ,addSearch, navigation}) => {
 
 
     return (
@@ -13,20 +13,25 @@ const Header = ({setModalVisible, searchVisible,setSearchVisible, searchText ,se
 
             <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
-                    <AntDesign name="search1" size={24} color="black" style={{marginRight: 10}} onPress={() => setSearchVisible(true)}/>
+                    <AntDesign name="search1" size={24} color="black" style={{marginRight: 10}} onPress={() => {setSearchVisible(true)} }/>
                     {/*/////////////////////////////////////////////////////////*/}
                     <Modal
                         animationType="fade"
                         transparent={true}
                         visible={searchVisible}
                         onRequestClose={() => {
+                            setSearchText('')
                             setSearchVisible(!searchVisible);
                         }}
                     >
                         <View style={styles.modal}>
                             <View style={styles.modalWrapper}>
                                 <TextInput placeholder={'Search...'} style={{width: '90%'}}  value={searchText} onChangeText={addSearch}/>
-                                <EvilIcons name="close" size={24} color="black" onPress={() => setSearchVisible(false)} />
+                                <EvilIcons name="close" size={24} color="black" onPress={() => {
+                                    setSearchText('')
+                                    setSearchVisible(false)
+                                }
+                                } />
                             </View>
                         </View>
                     </Modal>
@@ -35,7 +40,7 @@ const Header = ({setModalVisible, searchVisible,setSearchVisible, searchText ,se
 
                 <AntDesign onPress={() => setModalVisible(true)} name="pluscircleo" size={24} color="black" />
             </View>
-            <Ionicons name="settings-outline" size={24} color="black" />
+            <Ionicons name="settings-outline" size={24} color="black" onPress={() => navigation.navigate('Settings')}/>
         </View>
     )
 };
